@@ -1,15 +1,61 @@
-<h1>Login</h1>
-<hr>
-<form (ngSubmit)="doLogin()" #loginForm="ngForm">
-  <label>Email:</label>
-  <input type="text" id="email" name="email" required 
-  	[(ngModel)]="usuario.email">
-  <br>
-  <label>Passowrd: </label>
-  <input type="password" id="password" name="password" required
-  	[(ngModel)]="usuario.password">
-  <br>
-  <button type="submit" [disabled]="!loginForm.form.valid">
-  	Iniciar
-  </button>
-</form>
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif" rel="stylesheet">
+
+<div class="wrapper">
+  
+  <div class="slider-container">    
+    <div id="slides">
+      <div class="slides-container">        
+        <img src="assets/img/slide1.jpg" alt="">
+        <img src="assets/img/slide2.jpg" alt="">
+        <img src="assets/img/slide3.jpg" alt="">
+      </div>      
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="col-md-6">
+      <img src="assets/img/icon.png" alt="" class="logo">
+      <h1 class="title">FastFood</h1>
+      <div class="green-description">
+        <p>Restaurante Mexicano</p>
+      </div>
+      <br>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-container">
+        <div class="sub-form-container">
+          <div class="title">          
+            <span>Iniciar sesión</span>        
+            <div class="divider"></div>
+          </div>        
+
+          <form (ngSubmit)="doLogin()" #loginForm="ngForm">
+            <div class="form-group">
+              <label>Email:</label>
+              <input type="text" id="email" name="email" required  placeholder="Ingrese un email"
+              [(ngModel)]="usuario.email">
+            </div>          
+            
+            <div class="form-group">
+              <label>Passowrd: </label>
+              <input type="password" id="password" name="password" required placeholder="Ingrese un password"
+                [(ngModel)]="usuario.password">
+            </div>                    
+
+            <div class="text-danger text-center">
+              {{message}}
+            </div>
+            
+            <button type="submit" [disabled]="!loginForm.form.valid">
+              Iniciar
+            </button>
+          </form>      
+        </div>      
+      </div>    
+    </div>      
+  
+  </div>
+
+</div>
