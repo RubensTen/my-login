@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 //models
@@ -9,17 +9,19 @@ import { UsuarioService } from '../../services/usuario.service';
 import { AuthService } from '../../services/auth.service';
 
 
+declare var jQuery: any;
 
 @Component({	
 	selector: 'login',
 	templateUrl: 'app/templates/login.html',
-	styleUrls: ['../assets/css/login.css'],
+	styleUrls: ['../assets/css/superslides.css', '../assets/css/login.css'],
 	providers: [UsuarioService, AuthService]
 })
 
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, AfterViewInit  {
 	
 	usuario: Usuario;
+	message: string;
 
 	//Inicializacion de variables o instancias
 	constructor(
@@ -34,14 +36,33 @@ export class LoginComponent implements OnInit {
 	//Carga de procesos, llamada a funciones de servicios o providers
 	ngOnInit() {}
 
+	//Invocado despues de la inicializacion de la vista del componente
+	ngAfterViewInit(){		
+
+    jQuery(function() {
+      jQuery('#slides').superslides({
+        hashchange: true,
+        play: 2000,
+        animation: 'fade',
+        pagination: false
+      });      
+    });
+  
+		/*jQuery('#slides').superslides({			
+			animation: 'fade'
+		});*/
+	}
+
 	doLogin(){		
 		let result = this.usuarioService.usuarioValido(this.usuario);
 		if(result) {
 			console.log('generate token and save on ls');
 			this.authService.saveUser(result);
+			jQuery('#slides').superslides('stop');
 			this.router.navigate(['/admin']);
 		}else{
 			console.log('usuario y/o contraseña invalidos');
+			this.message = 'Usuario y/o contraseña invalidos';
 		}		
-	}
+	}	
 }
