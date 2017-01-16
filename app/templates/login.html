@@ -1,10 +1,15 @@
 <h1>Login</h1>
 <hr>
-<form>
+<form (ngSubmit)="doLogin()" #loginForm="ngForm">
   <label>Email:</label>
-  <input type="text">
+  <input type="text" id="email" name="email" required 
+  	[(ngModel)]="usuario.email">
   <br>
   <label>Passowrd: </label>
-  <input type="password">
-  <button type="submit">Iniciar</button>
+  <input type="password" id="password" name="password" required
+  	[(ngModel)]="usuario.password">
+  <br>
+  <button type="submit" [disabled]="!loginForm.form.valid">
+  	Iniciar
+  </button>
 </form>
