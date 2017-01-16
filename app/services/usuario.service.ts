@@ -5,8 +5,20 @@ import { USUARIOS } from '../mocks/mock-usuarios';
 
 @Injectable()
 export class UsuarioService{
-	auth(usuario: Usuario) {
-		console.log('array de usuarios: ', USUARIOS);		
+	
+	/**
+	 * Retorna el usuario coincidente con su email y password
+	 * @param  {Usuario} usuario a buscar
+	 * @return {Usuario}         usuario encontrado
+	 */
+	usuarioValido(usuario: Usuario): Usuario {		
+		let usuarioResult: Usuario[] = USUARIOS.map(usuarioMap => {
+			if(usuarioMap.email === usuario.email && usuarioMap.password === usuario.password) {
+				return usuarioMap;
+			}
+			return null;
+		});		
+		return usuarioResult[0] || undefined;
 	}
 }
 
