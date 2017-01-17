@@ -1,13 +1,113 @@
-<h3>ADMIN</h3>
-<nav>
-	<a routerLink="./" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-		Dash
-    </a>
-	<a routerLink="./profile" routerLinkActive="active">
-		Profile
-	</a>
-	<a routerLink="./settings" routerLinkActive="active">
-		Settings
-	</a>
-</nav>
-<router-outlet></router-outlet>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+<!--Header-part-->
+<div id="header">
+  <h1><a href="#">Restaurant Admin</a></h1>
+</div>
+<!--close-Header-part--> 
+
+
+<!--top-Header-menu-->
+<div id="user-nav" class="navbar navbar-inverse">
+  <ul class="nav">
+    <li  class="dropdown" id="profile-messages" ><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text">Bienvenido</span><b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><a href="#"><i class="icon-user"></i>Perfil</a></li>
+        <li class="divider"></li>
+        <li><a href="#"><i class="icon-check"></i>Settings</a></li>
+        <li class="divider"></li>
+        <li><a href="#"><i class="icon-key"></i> Salir</a></li>
+      </ul>
+    </li>
+    <li class="dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon icon-envelope"></i> <span class="text">Messages</span> <span class="label label-important">5</span> <b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><a class="sAdd" title="" href="#"><i class="icon-plus"></i> new message</a></li>
+        <li class="divider"></li>
+        <li><a class="sInbox" title="" href="#"><i class="icon-envelope"></i> inbox</a></li>
+        <li class="divider"></li>
+        <li><a class="sOutbox" title="" href="#"><i class="icon-arrow-up"></i> outbox</a></li>
+        <li class="divider"></li>
+        <li><a class="sTrash" title="" href="#"><i class="icon-trash"></i> trash</a></li>
+      </ul>
+    </li>    
+  </ul>
+</div>
+<!--close-top-Header-menu-->
+<!--start-top-serch-->
+<div id="search">
+  <input type="text" placeholder="Search here..."/>
+  <button type="submit" class="tip-bottom" title="Search"><i class="icon-search icon-white"></i></button>
+</div>
+<!--close-top-serch-->
+<!--sidebar-menu-->
+<div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+  <ul>
+    <li class="active">    	
+    	<a routerLink="./" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+    		<i class="icon icon-home"></i> <span>Dashboard</span>
+    	</a> 
+    </li>
+    <li> <a routerLink="./profile" routerLinkActive="active">
+    	<i class="icon icon-signal"></i> <span>Perfil</span></a> 
+    </li>
+    <li>
+    	<a routerLink="./settings" routerLinkActive="active">
+    		<i class="icon icon-inbox"></i> <span>Settings</span>
+    	</a> 
+    </li>    
+  </ul>
+</div>
+<!--sidebar-menu-->
+
+<!--main-container-part-->
+<div id="content">
+
+	<!--breadcrumbs-->
+	<div id="content-header">
+		<div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Dashboard</a></div>
+	</div>
+	<!--End-breadcrumbs-->
+
+	<!--Action boxes-->
+	  <div class="container-fluid">
+	    <div class="quick-actions_homepage">
+	      <ul class="quick-actions">
+	        <li class="bg_lb"> <a href="index.html"> <i class="icon-dashboard"></i> <span class="label label-important">20</span> My Dashboard </a> </li>
+	        <li class="bg_lg span3"> <a href="charts.html"> <i class="icon-signal"></i> Charts</a> </li>
+	        <li class="bg_ly"> <a href="widgets.html"> <i class="icon-inbox"></i><span class="label label-success">101</span> Widgets </a> </li>
+	        <li class="bg_lo"> <a href="tables.html"> <i class="icon-th"></i> Tables</a> </li>
+	        <li class="bg_ls"> <a href="grid.html"> <i class="icon-fullscreen"></i> Full width</a> </li>
+	        <li class="bg_lo span3"> <a href="form-common.html"> <i class="icon-th-list"></i> Forms</a> </li>
+	        <li class="bg_ls"> <a href="buttons.html"> <i class="icon-tint"></i> Buttons</a> </li>
+	        <li class="bg_lb"> <a href="interface.html"> <i class="icon-pencil"></i>Elements</a> </li>
+	        <li class="bg_lg"> <a href="calendar.html"> <i class="icon-calendar"></i> Calendar</a> </li>
+	        <li class="bg_lr"> <a href="error404.html"> <i class="icon-info-sign"></i> Error</a> </li>
+
+	      </ul>
+	    </div>
+	<!--End-Action boxes--> 
+
+    <hr/>
+    <div class="row-fluid">
+    	<router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+<!--end-main-container-part-->
+
+<!--Footer-part-->
+
+<div class="row-fluid">
+  	<div id="footer" class="span12"> 2017 | Desarrollado por
+  		<a href="https://rubensten.github.io" target="_blank">Rubens Ten</a> 
+ 	</div>
+</div>
+
+<!--end-Footer-part-->
+
+
+<script src="assets/js/matrix.js"></script> 
+<script src="assets/js/matrix.dashboard.js"></script> 
+<script src="assets/js/matrix.interface.js"></script> 
