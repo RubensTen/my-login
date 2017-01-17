@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { AuthService } from '../../services/auth.service';
 
 @Component({	
-	selector: 'admin',
+	selector: '',
 	templateUrl: 'app/templates/admin.html',
 	styleUrls: [
 		'../assets/css/bootstrap.min.css',
@@ -12,6 +15,13 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class AdminComponent implements OnInit {
-	constructor() {}
+	
+	constructor(private authService: AuthService, private router: Router) {}
+
 	ngOnInit() {}
+
+	logout():void{
+		this.authService.deleteUser();
+		this.router.navigate(['/']);
+	}
 }
