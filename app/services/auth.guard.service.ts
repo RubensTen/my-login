@@ -15,13 +15,12 @@ export class AuthGuardService implements CanActivate{
 	 * @return {boolean} flag para detener o avanzar la navegacion
 	 */
 	canActivate():boolean{
-		console.log('Guardia de autenticacion #canActivate llamado');		
-
+		//console.log('Guardia de autenticacion #canActivate llamado');				
 		//Validacion de usuario autenticado
 		if(this.authService.isLoggedIn()) {
 			return true;
 		}
 		this.router.navigate(['/login']);
 		return false;
-	}	
+	}
 }
