@@ -8,7 +8,7 @@ import { Usuario } from '../../models/usuario';
 import { UsuarioService } from '../../services/usuario.service';
 import { AuthService } from '../../services/auth.service';
 
-
+//Variable para jquery
 declare var jQuery: any;
 
 @Component({	
