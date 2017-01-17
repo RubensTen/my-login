@@ -34,7 +34,12 @@ export class LoginComponent implements OnInit, AfterViewInit  {
 	}
 
 	//Carga de procesos, llamada a funciones de servicios o providers
-	ngOnInit() {}
+	ngOnInit() {
+		if(this.authService.isLoggedIn()) {
+			// code...
+			this.router.navigate(['/admin']);
+		}
+	}
 
 	//Invocado despues de la inicializacion de la vista del componente
 	ngAfterViewInit(){		
