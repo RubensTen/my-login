@@ -38,30 +38,23 @@ export class LoginComponent implements OnInit, AfterViewInit  {
 
 	//Invocado despues de la inicializacion de la vista del componente
 	ngAfterViewInit(){		
-
-    jQuery(function() {
-      jQuery('#slides').superslides({
-        hashchange: true,
-        play: 2000,
-        animation: 'fade',
-        pagination: false
-      });      
-    });
-  
-		/*jQuery('#slides').superslides({			
-			animation: 'fade'
-		});*/
+	    jQuery(function() {
+	    	jQuery('#slides').superslides({
+		        hashchange: false,
+		        play: 2000,
+		        animation: 'fade',
+		        pagination: false
+		    });      
+		});		
 	}
 
 	doLogin(){		
 		let result = this.usuarioService.usuarioValido(this.usuario);
-		if(result) {
-			console.log('generate token and save on ls');
+		if(result) {			
 			this.authService.saveUser(result);
 			jQuery('#slides').superslides('stop');
 			this.router.navigate(['/admin']);
-		}else{
-			console.log('usuario y/o contraseña invalidos');
+		}else{			
 			this.message = 'Usuario y/o contraseña invalidos';
 		}		
 	}	
